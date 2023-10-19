@@ -5,9 +5,6 @@ const app=express();
 const port=process.env.PORT||5000;
 
 
-//Phone-data
-//fO7AwBO2ZNwUWNDG
-
 
 
 
