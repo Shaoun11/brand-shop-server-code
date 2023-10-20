@@ -61,6 +61,17 @@ async function run() {
       const result=await database.findOne(query);
       res.send(result);
   })
+  //delete data
+  app.delete("/phones/:id", async (req, res) => {
+    const id = req.params.id;
+    console.log("delete", id);
+    const query = {
+      _id: new ObjectId(id),
+    };
+    const result = await database.deleteOne(query);
+    console.log(result);
+    res.send(result);
+  });
 
   //update data
 
