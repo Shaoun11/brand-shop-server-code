@@ -26,11 +26,25 @@ async function run() {
     await client.connect();
     // Send a ping to confirm a successful connection
     const database = client.db("Phone-data").collection("phones")
- 
+   
+ //post data phones
     app.post("/phones", async (req, res) => {
       const phones = req.body;
       const result = await database.insertOne(phones);
       console.log(result);
+      res.send(result);
+    });
+    //post data cart
+    app.post("/mycart", async (req, res) => {
+      const mycart = req.body;
+      const result = await database.insertOne(mycart);
+      console.log(result);
+      res.send(result);
+    });
+
+    //get cart data
+    app.get("/mycart", async (req, res) => {
+      const result = await database.find().toArray();
       res.send(result);
     });
 
